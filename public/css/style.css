@@ -1,0 +1,72 @@
+@font-face {
+    font-family: Chivo-Light;
+    src: url(Chivo-Light.ttf);
+}
+
+@font-face {
+    font-family: Chivo-Regular;
+    src: url(Chivo-Regular.ttf);
+}
+
+@font-face {
+    font-family: Chivo-Bold;
+    src: url(Chivo-Bold.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Chivo-Regular;
+}
+
+#login-view, #signup-view {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: #EAEFF2;
+}
+
+#login-view form, #signup-view form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 550px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+#login-view form h1, #signup-view form h1 {
+    text-align: center;
+    margin: 5px 0;
+    color: #167D7F;
+}
+
+#login-view form label, #signup-view form label {
+    margin-bottom: 5px;
+}
+
+#login-view form input, #signup-view form input {
+    margin-bottom: 7px;
+    font-size: 18px;
+    padding: 10px;
+}
+
+#login-view form input[type='submit'], #signup-view form input[type='submit'] {
+    background-color: #167D7F;
+    border: 1px solid #167D7F;
+    color: #fff;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    margin: 10px 0 17px;
+}
+
+#login-view form a, #signup-view form a {
+    text-decoration: none;
+    font-family: Chivo-Bold;
+    color: #167D7F;
+}
+
+#login-view form a:hover, #signup-view form a:hover {
+    text-decoration: 2px underline #167D7F;
+}
