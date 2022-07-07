@@ -20,6 +20,20 @@
     font-family: Chivo-Regular;
 }
 
+.container {
+    padding: 0 150px;
+}
+
+.error-message {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-family: Chivo-Bold;
+    margin-bottom: 6px;
+}
+
 #login-view, #signup-view {
     height: 100vh;
     display: grid;
