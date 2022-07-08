@@ -34,6 +34,20 @@
     margin-bottom: 6px;
 }
 
+.section-title {
+    text-align: center;
+    font-family: Chivo-Light;
+    margin-bottom: 12px;
+    color: #167D7F;
+}
+
+.hr {
+    height: 3px;
+    width: 120px;
+    background-color: #167D7F;
+    margin: 0 auto 18px;
+}
+
 #login-view, #signup-view {
     height: 100vh;
     display: grid;
@@ -84,3 +98,68 @@
 #login-view form a:hover, #signup-view form a:hover {
     text-decoration: 2px underline #167D7F;
 }
+
+header {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+
+header h1 {
+    font-family: Chivo-Light;
+}
+
+header span {
+    font-family: Chivo-Bold;
+}
+
+nav li {
+    display: inline;
+}
+
+nav li a {
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+.nav-link, #nav-link-login {
+    padding: 8px;
+    color: #167D7F;
+}
+
+.nav-link:hover {
+    border-bottom: 2px solid #167D7F;
+}
+
+#nav-link-login {
+    border: 1px solid #167D7F;
+}
+
+#nav-link-signup {
+    background-color: #167D7F;
+    border: 1px solid #167D7F;
+    color: #fff;
+    padding: 8px;
+}
+
+#home #row-1 {
+    height: 350px;
+    display: flex;
+    align-items: center;
+}
+
+#home #row-2 {
+    margin: 25px 0;
+    background-color: #f2f2f2;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#home #row-2 p {
+    text-align: center;
+    padding: 0 180px;
+}
+
+
