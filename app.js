@@ -1,6 +1,7 @@
 import express from 'express'
 import mysql from 'mysql'
 import bcrypt from 'bcrypt'
+import session from 'express-session'
 
 const app = express()
 const connection = mysql.createConnection({
@@ -13,10 +14,35 @@ const connection = mysql.createConnection({
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: false}))
+app.use(session({
+    resave: false,
+    saveUninitialized: false,
+    secret: '#ikokazi' 
+}))
+
+// continually check if user is logged in
+app.use((req, res, next) => {
+    if (req.session.userID === undefined) {
+        res.locals.isLoggedIn = false
+        // console.log('user is not logged in')        
+    } else {
+        res.locals.isLoggedIn = true
+        // console.log(`user is logged in with id: ${req.session.userID}` )
+    }
+    next()
+})
 
 
 app.get('/', (req, res) => {
     res.render('index')
+})
+
+app.get('/board', (req, res) => {
+    if (res.locals.isLoggedIn) {
+        res.render('board')
+    } else {
+        res.redirect('/login')
+    }
 })
 
 // login 
@@ -41,7 +67,8 @@ app.post('/login', (req, res) => {
 
                 bcrypt.compare(user.password, results[0].password, (error, matches) => {
                     if (matches) {
-                        res.send('logged in successfully')                        
+                        req.session.userID = results[0].js_id
+                        res.redirect('/board')                        
                     } else {
                         let message = 'Incorrect password'
                         res.render('login', {error: true, message: message, user: user})
@@ -109,8 +136,13 @@ app.post('/signup', (req, res) => {
         let message = 'Passwords not matching.'
         res.render('signup', {error: true, message: message, user: user})
     }
+})
 
-
+// logout functionality
+app.get('/logout', (req, res) => {
+    req.session.destroy((error) => {
+        res.redirect('/')
+    })
 })
 
 
