@@ -6,8 +6,14 @@
             <li><a class="nav-link" href="">How it works</a></li>
             <li><a class="nav-link" href="">FAQ</a></li>
             <li><a class="nav-link" href="">Contacts</a></li>
-            <li><a id="nav-link-login" href="/login">Log In</a></li>
-            <li><a id="nav-link-signup" href="/signup">Sign Up</a></li>
+
+            <% if(locals.isLoggedIn) { %>
+                <li><a class="nav-link" href="/logout">Log Out</a></li>
+            <% } else { %>
+                <li><a id="nav-link-login" href="/login">Log In</a></li>
+                <li><a id="nav-link-signup" href="/signup">Sign Up</a></li>
+            <% } %>
+            
         </ul>
     </nav>
 </header>
